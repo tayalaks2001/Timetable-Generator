@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Indices</title>
+{% endblock %}
+
+{% block body %}
+<form action="/ChooseIndices" method="POST">
+    {% for course in courses %}
+        <label for="Indices{{course}}">Any index choices for {{course}}?</label><br>
+        <input type="text" name="Indices{{course}}" id="Indices{{course}}" value=""><br><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

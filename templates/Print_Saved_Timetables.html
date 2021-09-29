@@ -1,0 +1,44 @@
+{% extends "Base.html" %}
+
+{% block head %}
+<title>Print Saved Timetable</title>
+{% endblock %}
+
+{% block body %}
+<table border="5" cellspacing="0" align="center">
+    <tr> 
+        <td align="center" height="50" width="150"> </td> 
+        <td align="center" height="50" width="150"> <b>Monday</b> </td> 
+        <td align="center" height="50" width="150"> <b>Tuesday</b> </td> 
+        <td align="center" height="50" width="150"> <b>Wednesday</b> </td> 
+        <td align="center" height="50" width="150"> <b>Thursday</b> </td> 
+        <td align="center" height="50" width="150"> <b>Friday</b> </td> 
+        <td align="center" height="50" width="150"> <b>Saturday</b> </td>
+    </tr> 
+    {% for idx in range(27) %}
+        <tr> 
+            <td align="center" height="50" width="150"> <b>{{timings[idx]}}</b> </td> 
+            {% for day in timetable %}
+                {% if not timetable[day][idx] %}
+                    <td align="center" height="50" width="150"></td>
+                {% elif span[day][idx] %}
+                    <td align="center" height="50" width="150" rowspan={{span[day][idx]}}>
+                    {% for lesson in timetable[day][idx] %}
+                        {% for _ in lesson.split("  ") %}
+                            {{_}}<br>
+                        {% endfor %}
+                    {% endfor %}
+                    </td>
+                {% endif %}
+            {% endfor %}
+        </tr> 
+    {% endfor %}
+</table> 
+<br>
+
+<a href="/MyTimetables"><input type="button" value="Back"></a>
+<a href="/PrintSavedTimetable?pos={{pos+1}}"><input type="button" value="Next Timetable"></a>
+<a href="/PrintSavedTimetable?pos={{pos-1}}"><input type="button" value="Previous Timetable"></a>
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "Base.html" %}
+
+{% block head %}
+<title>Confirmation</title>
+{% endblock %}
+
+{% block body %}
+<form>
+    <h3>Your Choice has been Saved!</h3>
+    {% for index in indicesCombo %}
+        <label>{{index}}</label><br>
+    {% endfor %}
+    <br>
+    <p>Do you want more courses?</p>
+    <a href="/PrintTimetable"><input type="button" value="Yes"></a>
+    <a href="/ChooseCourses"><input type="button" value="No"></a>
+</form>
+{% endblock %}

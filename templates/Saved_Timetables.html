@@ -1,0 +1,12 @@
+{% extends "Base.html" %}
+
+{% block head %}
+<title>Saved Timetables</title>
+{% endblock %}
+
+{% block body %}
+{% for i in range(l) %}
+    <a href="/PrintSavedTimetable?pos={{i}}"><input type="button" value="View timetable {{i+1}}"</a>
+{% endfor %}
+<a href="/Home"><input type="button" value="Back"></a>
+{% endblock %}

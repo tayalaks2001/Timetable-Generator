@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Home</title>
+
+{% endblock %}
+
+{% block body %}
+<form action="/Login" method="POST">
+      <h1>Login Form</h1>
+      <div class="formcontainer">
+      <hr>
+      <div class="container">
+        <label for="ID"><strong>Username</strong></label>
+        <input type="text" placeholder="Enter Username" name="ID" id="ID" required>
+        <label for="Password"><strong>Password</strong></label>
+        <input type="password" placeholder="Enter Password" name="Password" id="Password" required>
+      </div><br>
+      <button type="Submit">Login</button>
+      <a href="/SignUp"><input type = "button" value = "New User? Sign up!"></a>
+</form>
+
+{% endblock %}
